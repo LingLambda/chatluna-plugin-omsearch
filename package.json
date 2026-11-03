@@ -1,0 +1,65 @@
+{
+    "name": "chatluna-plugin-omsearch",
+    "version": "0.1.0",
+    "description": "chatluna的搜索插件集成，支持大部分主流搜索服务。",
+    "type": "module",
+    "license": "MIT",
+    "author": "LingLambda",
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/LingLambda/chatluna-plugin-omsearch.git"
+    },
+    "homepage": "https://github.com/LingLambda/chatluna-plugin-omsearch#readme",
+    "bugs": {
+        "url": "https://github.com/LingLambda/chatluna-plugin-omsearch/issues"
+    },
+    "keywords": [
+        "chatluna",
+        "chatluna-plugin",
+        "search",
+        "web-search"
+    ],
+    "main": "lib/index.js",
+    "types": "lib/index.d.ts",
+    "exports": {
+        ".": {
+            "types": "./lib/index.d.ts",
+            "default": "./lib/index.js"
+        },
+        "./package.json": "./package.json"
+    },
+    "files": [
+        "lib",
+        "README.md",
+        "LICENSE"
+    ],
+    "engines": {
+        "node": ">=24.0.0"
+    },
+    "scripts": {
+        "build": "yakumo build",
+        "clean": "yakumo clean"
+    },
+    "peerDependencies": {
+        "@chatluna/schema": "^2.0.0-alpha.0",
+        "@chatluna/tool": "^2.0.0-alpha.0",
+        "@cordisjs/plugin-http": "^1.5.0",
+        "cordis": "^4.0.0-rc.12"
+    },
+    "devDependencies": {
+        "@chatluna/schema": "2.0.0-alpha.0",
+        "@chatluna/tool": "2.0.0-alpha.0",
+        "@cordisjs/plugin-http": "^1.5.1",
+        "cordis": "4.0.0-rc.12",
+        "typescript": "*"
+    },
+    "cordis": {
+        "description": {
+            "zh": "chatluna的搜索插件集成，支持大部分主流搜索服务。",
+            "en": "Web search integration for ChatLuna with ordered fallback across mainstream search services."
+        }
+    },
+    "chatluna": {
+        "description": "chatluna的搜索插件集成，支持大部分主流搜索服务。"
+    }
+}
