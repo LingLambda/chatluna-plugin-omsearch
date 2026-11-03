@@ -2,6 +2,7 @@ import type { SearchProvider } from '../types'
 import baidu from './baidu'
 import bocha from './bocha'
 import brave from './brave'
+import deepseek from './deepseek'
 import duckduckgo from './duckduckgo'
 import exa from './exa'
 import firecrawl from './firecrawl'
@@ -26,6 +27,7 @@ export const providers: readonly SearchProvider[] = [
   perplexity,
   bocha,
   zhipu,
+  deepseek,
   metaso,
   baidu,
   searxng,

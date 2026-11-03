@@ -9,7 +9,7 @@ chatluna的搜索插件集成，支持大部分主流搜索服务。
 | 类型 | 服务 | 需要 |
 | --- | --- | --- |
 | 国际 | Tavily、Brave Search、Exa、Jina Search、Firecrawl、Kagi、Serper（Google）、Perplexity Search | API Key（Firecrawl 自建实例可不填） |
-| 国内 | 博查 Bocha、智谱 Web Search、秘塔 Metaso、百度千帆 AI 搜索 | API Key |
+| 国内 | 博查 Bocha、智谱 Web Search、DeepSeek Search、秘塔 Metaso、百度千帆 AI 搜索 | API Key |
 | 自托管 / 免 Key | SearXNG、DuckDuckGo | SearXNG 实例地址；DuckDuckGo 无需配置 |
 
 ## 配置
@@ -42,14 +42,14 @@ chatluna的搜索插件集成，支持大部分主流搜索服务。
 `web_search({ query, recency?, limit? })`
 
 - `query`：搜索词，大多数引擎支持引号短语和 `site:`。
-- `recency`：`day` / `week` / `month` / `year`。没有对应时间窗的服务会放宽到最接近的一档（SearXNG 的 week → month，百度的 day → week）；秘塔、Jina 不支持时间过滤。
+- `recency`：`day` / `week` / `month` / `year`。没有对应时间窗的服务会放宽到最接近的一档（SearXNG 的 week → month，百度的 day → week）；DeepSeek 通过在查询末尾追加 `after:YYYY-MM-DD` 实现；秘塔、Jina 不支持时间过滤。
 - `limit`：1–20，超出单个服务上限时按该服务上限截断。
 
 返回编号结果（标题、链接、摘要、日期），部分服务（Tavily、Kagi、Serper、SearXNG）会附带一段简短回答，末尾注明实际返回结果的服务。
 
 ## 注意
 
-- 智谱搜索的查询不能超过 70 个字符，超出时直接跳到下一个服务。
+- 智谱搜索的查询不能超过 70 个字符，DeepSeek 不能超过 128 个字符（含 `recency` 追加的 `after:` 条件），超出时直接跳到下一个服务。
 - DuckDuckGo 通过抓取 HTML 页面实现，数据中心或共享出口 IP 容易被它的人机验证拦截，建议放在回退链末尾。
 - 依赖宿主的 `tools`（`@chatluna/tool`）和 `http`（`@cordisjs/plugin-http`）服务。
 
